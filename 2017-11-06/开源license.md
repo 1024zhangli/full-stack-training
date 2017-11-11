@@ -1,6 +1,4 @@
-https://choosealicense.com/
-https://gitee.com/oschina/git-osc/wikis/pages?title=License&parent=
-
+# 有哪些开源许可证？
 ## BSD
 Berkeley Software Distribution，伯克利软件发行版本
 使用者可以自由的使用、修改源代码，亦可将修改后的代码作为开源软件或者专有软件再发布。
@@ -33,7 +31,7 @@ GNU General Public License的缩写。
 对于商业产品，或者对代码有保密要求的产品，就不适合采用GPL许可的产品作为类库和二次开发。
 
 ## Affero GPL
-是一个自由软件特许条款
+是一个自由软件特许条款，改自GNU通用公共特许条款。目的是为了Copyleft条款应用于网络上运行的程序（例如Web应用），从而避免有人以应用服务提供商方式逃避GNU通用公共特许条款。
 
 ## LGPL
 ### LGPL v2.1
@@ -43,3 +41,36 @@ GNU Lesser General Public License的缩写。
 如果修改或者衍生LGPL许可的代码，那么所有修改的代码、涉及修改部分的额外代码、以及衍生代码都必须采用LGPL许可。说人话：商业软件可以用，但不能修改人家的LGPL许可的代码，改了人家的代码，你就得要开源。
 ### LGPL v3
 相对于LGPL v2，不仅要求用户公布修改的源代码，还要求公布相关硬件。
+
+## EPL
+EPL(Eclipse Pulic LICENSE) v1.0,允许使用者任意使用、复制、分发、传播、修改甚至闭源的商业发布。
+
+使用约束：
+1. 你修改源码后再发布，还必须遵循EPL开源协议，不能采用其他协议，除非得到原作者的授权需求。
+2. 你可以用EPL许可的源码（包括修改后的代码、或者二进制文件）作为商业发布，必须声明源码从哪里获取的，怎么获取的。
+3. 你的项目有部分是用了EPL许可的源码，那发布时，必须声明哪部分是用的EPL的源码，并且这部门遵循EPL协议。
+
+简单的说，EPL许可的源码可以任意的用，但必须声明来源；修改或者混用后的代码还必须遵循EPL协议
+
+## MPL
+Mozilla Public License的缩写，允许修改和无偿使用。MPL许可证允许免费重发布、免费修改，但要求修改后的代码版权归软件的发起者 。这种授权维护了商业软件的利益，它要求基于这种软件的修改无偿贡献版权给该软件。
+使用约束：
+1. 你可以使用MPL许可的源码与自己的项目代码混合使用，得到自己的程序。
+2. MPL不允许提供者提供已受专利保护的源码（除非是专利本人，并申明免费可以使用），不能将遵循MPL之后的源码再去申请专利。
+3. 你修改了MLP许可的源码再发布，必须要提供一个专门的文件描述对源码修改的时间和方式。
+
+## Public Domain
+Public Domain是人类的一部分作品与一部分知识的汇总，没有专属权利人，人们可以自由使用它们。
+
+# 如何选择开源许可证？
+这里借用阮一峰老师的图:
+![](./openSourceLicense.png)
+
+---
+
+>参考资料：
+>
+>https://choosealicense.com/
+>https://gitee.com/oschina/git-osc/wikis/pages?title=License&parent=
+>http://www.jianshu.com/p/55d62fbe5c8c
+>http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html
