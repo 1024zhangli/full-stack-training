@@ -64,7 +64,7 @@ Public Domain是人类的一部分作品与一部分知识的汇总，没有专�
 
 # 如何选择开源许可证？
 这里借用阮一峰老师的图:
-![](./openSourceLicense.png)
+![](openSourceLicense.png)
 
 ---
 
