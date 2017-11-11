@@ -5,6 +5,8 @@
 - 性别：男
 - Email：1024zhangli@gmail.com
 - 爱好：羽毛球、读书
+- GitHub地址：[https://github.com/1024zhangli](https://github.com/1024zhangli)
+- Codewards地址：[https://www.codewars.com/users/1024zhangli](https://www.codewars.com/users/1024zhangli)
 
 ## 教育经历
 
