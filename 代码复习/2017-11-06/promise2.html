@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="lib/jquery.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      let p1 = new Promise((resolve, reject) =>{
+          $.ajax({
+              url: 'data/1.txt',
+              dataType: 'json',
+              success (arr) {
+                resolve(arr);
+              },
+              error(err) {
+                reject(err);
+              }
+          });
+      });
+
+      // p1.then(function (arr) {
+      //   //成功之后的处理
+      //    alert('we sucess' + arr);
+      // }, function (err) {
+      //   alert('failed!');
+      // });
+
+      let p2 = new Promise((resolve, reject)=> {
+          $.ajax({
+              url: 'data/2.txt',
+              dataType: 'json',
+              success (arr) {
+                resolve(arr);
+              },
+              error(err) {
+                reject(err);
+              }
+          })
+      });
+
+      //Promise.all的用法, arr 每个Promise成功的数据
+      Promise.all([p1, p2]).then(arr=>{
+        let [a1, a2] = arr;
+        alert(a1);
+        alert(a2);
+      }, err=>{
+        alert("oh. error!");
+      })
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

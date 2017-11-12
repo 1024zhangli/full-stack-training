@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+      class User {
+        constructor (name , age ) {
+          this.name = name;
+          this.age = age;
+        }
+
+        login() {
+          alert("success!");
+        }
+      }
+
+
+
+      class Vip extends User {
+        constructor (name, age, level) {
+          super(name, age);
+          this.level = level;
+        }
+
+        login() {
+          alert('i am vip');
+        }
+      }
+      let my = new Vip("chocolate", 22, 39);
+      alert(my.level);
+      my.login();
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

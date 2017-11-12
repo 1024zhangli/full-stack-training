@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+        // function show(fn) {
+        //   fn(1,3);
+        // }
+
+        //
+        let show = fn => {
+          fn(1, 3);
+        }
+
+
+        // show(function (a, b) {
+        //   alert(a * b);
+        // })
+        //
+        // show((a, b) => {
+        //   alert(a*b);
+        // })
+        //
+        // let add = a => a+1;
+        // alert(add(45));
+
+        // 箭头函数——简写：
+        // 1.只有一个参数，()可以省
+        // 2.只有一个语句，还是return，{}可以省
+
+        
+        //数组排序
+        let arr = [1,2, 3,4,99];
+        // arr.sort(function(a, b) {
+        //   if (a > b) {
+        //     return false;
+        //   }
+        //   else {
+        //     return true;
+        //   }
+        // });
+
+        // arr.sort((a, b) =>{
+        //   return a > b ? false : true;
+        // });
+
+        // arr.sort((a, b) =>{
+        //   return b - a;
+        // });
+
+        arr.sort((a, b) =>b - a);
+        alert(arr);
+    </script>
+  </head>
+  <body>
+
+
+  </body>
+</html>

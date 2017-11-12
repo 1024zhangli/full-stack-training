@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="lib/jquery.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    function getP1() {
+      let p1 = new Promise((resolve, reject) =>{
+            $.ajax({
+                url: 'data/1.txt',
+                dataType: 'json',
+                success (arr) {
+                  resolve(arr);
+                },
+                error(err) {
+                  reject(err);
+                }
+            });
+      });
+
+      return p1;
+    }
+
+    function getP2 () {
+      let p2 = new Promise((resolve, reject)=> {
+
+          $.ajax({
+              url: 'data/2.txt',
+              dataType: 'json',
+              success (obj) {
+                resolve(obj);
+              },
+              error(err) {
+                reject(err);
+              }
+          })
+      });
+
+      return p2;
+    }
+
+
+      getP1().then(arr => {
+        //成功之后的处理
+         alert('we sucess' + arr);
+         return getP2();
+      }).then(obj => {
+        alert('again' + obj);
+      });
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

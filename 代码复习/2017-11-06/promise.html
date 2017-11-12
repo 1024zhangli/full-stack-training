@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="lib/jquery.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      let p = new Promise(function(resolve, reject) {
+          $.ajax({
+              url: 'data/1.txt',
+              dataType: 'json',
+              success (arr) {
+                resolve(arr);
+              },
+              error(err) {
+                reject(err);
+              }
+          })
+
+      });
+
+      p.then(function (arr) {
+        //成功之后的处理
+         alert('we sucess' + arr);
+      }, function (err) {
+        alert('failed!');
+      });
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
