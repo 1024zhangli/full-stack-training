@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.js"></script>
+    <!--<script src="runner.js"></script>-->
+    <script>
+        function* show() {
+
+            alert("start");
+            let arr  = yield $.ajax({
+                'url': 'data/1.txt',
+                dataType: 'json'
+            });
+
+            alert("1.txt:" + arr);
+            console.log(arr);
+
+            let json = yield $.ajax({url: 'data/2.txt', dataType: 'json'});
+
+            alert("2.txt" );
+            console.log(json);
+        }
+
+        let s = show();
+//        s.next();
+//        s.next();
+
+        runner(show);
+
+        //尝试自己写个runner，low版本
+        function runner(_gen) {
+
+            let gen = _gen();
+            _next();
+            function _next(genRes) {
+                let response = gen.next(genRes);
+                let obj = response.value;
+                if (obj) {
+                    obj.then(data => {
+                        _next(data);
+                    })
+                }
+                else {
+                    return;
+                }
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
