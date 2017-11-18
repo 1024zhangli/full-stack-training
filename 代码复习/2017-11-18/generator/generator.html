@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>generator</title>
+    <script>
+        function* gen(a, b) {
+            alert(`${a}, ${b}`);
+            let c = yield 1;
+
+
+            alert(`${c}`);
+            yield 2;
+            yield 3;
+
+        }
+        let g = gen(12 ,5);
+
+        console.log(g.next());
+        g.next(80000);
+
+
+
+        function* fibonacci() {
+            let a = yield 1;
+            alert(a);
+            yield a*2;
+        }
+
+        var it = fibonacci();
+
+//        alert(it.next().value);
+//        alert(it.next(20).value);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
