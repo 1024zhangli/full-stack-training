@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.js"></script>
+    <script>
+        function* show() {
+
+            alert("start");
+            let arr  = yield $.ajax({
+                'url': 'data/1.txt',
+                dataType: 'json'
+            });
+
+            alert("1.txt:" + arr);
+            console.log(arr);
+
+            let json = yield $.ajax({url: 'data/2.txt', dataType: 'json'});
+
+            alert("2.txt" );
+            console.log(json);
+        }
+
+        let s = show();
+//        s.next();
+//        s.next();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
