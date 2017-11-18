@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.js"></script>
+    <!--<script src="runner.js"></script>-->
+    <script>
+        function* show() {
+
+            alert("start");
+            let arr  = yield $.ajax({
+                'url': 'data/1.txt',
+                dataType: 'json'
+            });
+
+            alert("1.txt:" + arr);
+            console.log(arr);
+
+            let json = yield $.ajax({url: 'data/2.txt', dataType: 'json'});
+
+            alert("2.txt" );
+            console.log(json);
+        }
+
+        let s = show();
+//        s.next();
+//        s.next();
+
+        runner(show);
+
+        function runner(_gen) {
+
+            //返回一个promise对象
+            return new Promise((resolve, reject)=> {
+                let gen = _gen();
+                _next();
+                function _next(genRes) {
+                    let response = gen.next(genRes);
+
+                    //下面还有yield
+                    if (!response.done) {
+                        let obj = response.value;
+
+                        // promise对象
+                        if (obj.then) {
+                            obj.then(data => {_next(data)}, err => {reject(err)})
+                        }
+                        //返回一个函数
+                        else if (typeof obj === 'function') {
+                            if (obj.constructor.toString().startsWith('function GeneratorFunction')) {
+                                runner(obj).then(res=>{_next(res)}, reject);
+                            }
+                            else {
+                                //将普通函数执行返回的结果,作为next的参数
+                                _next(obj());
+                            }
+                        }
+                        //普通对象
+                        else {
+                            _next(obj);
+                        }
+                    } else {
+                        resolve(response.value);
+                    }
+
+                }
+            });
+
+
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
