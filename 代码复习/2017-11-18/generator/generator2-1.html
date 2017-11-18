@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.js"></script>
+    <script>
+        function* show() {
+
+            alert("start");
+
+            //yield 返回还可以返回函数
+            let arr  = yield function () {
+                   return 'data/2.txt';
+            };
+
+            alert("1.txt:" + arr);
+            console.log(arr);
+
+            let json = yield $.ajax({url: 'data/2.txt', dataType: 'json'});
+
+            alert("2.txt" );
+            console.log(json);
+        }
+
+        let s = show();
+//        s.next();
+//        s.next();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
