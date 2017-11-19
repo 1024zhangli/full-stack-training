@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="sea.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+      //在html中使用seajs.use引用
+      seajs.use(['mod1.js'], function (mod1) {
+        alert(`a = ${mod1.a}, b = ${mod1.b}`);
+        mod1.show();
+      });
+
+      seajs.use(['mod2.js'], function (mod2) {
+
+        mod2.show();
+      })
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
