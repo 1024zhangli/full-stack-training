@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>媒体查询</title>
+    <style media="screen" type="text/css">
+        .box {height: 30px; background:red;}
+    </style>
+    <style media="print" type="text/css">
+        .box {height: 30px; background: #ccc;}
+    </style>
+</head>
+<body>
+<div id="box" class="box"></div>
+</body>
+</html>
+
+<!--
+style 中的media属性是在什么场景下生效；常用的是screen，在屏幕上显示；如果是打印时想要不同的色彩，media设置print，指定打印时的样式
+
+-->
