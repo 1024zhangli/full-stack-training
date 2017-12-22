@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style media="screen">
+        body { background: black; text-align: center}
+        #c1 {background: white}
+    </style>
+    <script>
+        window.onload = function () {
+            let oC1 = document.getElementById('c1');
+
+            //图形上下文——绘图接口
+            let gd = oC1.getContext('2d');
+
+            //路径操作——跟PS里面的选区一样
+            gd.moveTo(100, 100);
+            gd.lineTo(300, 200);
+            gd.lineTo(130, 350);
+
+            gd.lineTo(100, 100);
+//            gd.closePath(); //路径闭合
+
+
+            gd.lineWidth = 20;
+            gd.strokeStyle = "red";
+
+            gd.stroke();
+
+            // 填充
+            gd.fillStyle = 'yellow';
+            gd.fillStyle = 'rgba(255, 255, 0, 0.3)';
+            gd.fill();
+        }
+    </script>
+</head>
+<body>
+    <canvas id="c1" width="800" height="600">
+        您的浏览器并不支持canvas，请<a href="https://www.google.cn/chrome/browser/desktop/index.html">下载最新版浏览器</a>
+    </canvas>
+</body>
+</html>
+
+<!--
+getContext('2d')  图形上下文——绘图接口
+moveTo, lineTo 这些都是路径操作，也就是说划定一个区域。有了这个区域之后，还要用stroke画出边线，用fill填充区域。
+closePath()路径闭合，比如画个三角形，只画两条边，最后一个用closePath来。跟直接画第三条边最后收口的地方效果不一样，线宽比较宽就能发现。
+
+
+fillStyle设置填充的颜色，可以是直接的颜色赋值、如red/yellow/blue等等，也可以使用rgba()这种方式赋值.
+-->
