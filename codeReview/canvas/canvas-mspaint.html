@@ -4,16 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <title>mspaint</title>
+    <style media="screen" type="text/css">
+        body {background-color: burlywood; text-align: center}
+        #c1 {background-color:white; border: solid 1px black}
+    </style>
     <script>
         window.onload = function() {
-            let oC1 = document.getElementById();
+            let oC1 = document.getElementById('c1');
             let dg = oC1.getContext('2d');
+
+            let oColor = document.getElementById('color');
+
+            let color = 'black';
+
+            oColor.onchange = function () {
+                color = oColor.value;
+                console.log(color);
+            };
+
+            oC1.onmousedown = function (ev) {
+                let lastX = ev.offsetX;
+                let lastY = ev.offsetY;
+
+                oC1.onmousemove = function (ev) {
+
+                    dg.beginPath();
+                    dg.moveTo(lastX, lastY);
+                    dg.lineTo(ev.offsetX, ev.offsetY);
+                    dg.strokeStyle = color;
+                    dg.stroke();
+
+                    //当前的起点即上次的起点，保存一下
+                    lastX = ev.offsetX;
+                    lastY = ev.offsetY;
+                };
+
+                oC1.onmouseup = function () {
+
+                    //鼠标抬起清空事件
+                    oC1.onmousemove = null;
+                    oC1.onmouseup = null;
+                }
+
+            };
 
         };
     </script>
 </head>
 
 <body>
+    <input type="color" id="color" ><br>
     <canvas id="c1" width="800" height="600"></canvas>
 </body>
 
