@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="http://localhost:8080/socket.io/socket.io.js" charset="utf-8"></script>
+    <style type="text/css">
+        .self {
+            background-color: green;
+        }
+    </style>
+    <script type="text/javascript">
+        let sock = io.connect('ws://localhost:8080/');
+
+        window.onload = function() {
+            let oUser = document.getElementById('user');
+            let oPass = document.getElementById('pass');
+            let oReg = document.getElementById('register');
+            let oLogin = document.getElementById('login');
+            let oSend = document.getElementById('send');
+            let oTxt = document.getElementById('txt');
+            let oUl1 = document.getElementById('ul1');
+
+            let currentName = '';
+
+
+            //注册
+            oReg.onclick = function() {
+                sock.emit('reg', oUser.value, oPass.value);
+            }
+            sock.on('reg_ret', (code, msg) => {
+                if (code) {
+                    alert(`注册失败, ${code}, ${msg}`);
+                } else {
+                    alert('注册成功');
+                }
+            });
+
+            //登录
+            oLogin.onclick = function() {
+                sock.emit('login', oUser.value, oPass.value);
+            }
+            sock.on('login_ret', (code, msg) => {
+                if (code) {
+                    alert(`登录失败, ${code}, ${msg}`);
+                } else {
+                    // 保存登录的用户名，展示聊天列表时使用
+                    currentName = oUser.value;
+                    alert('登录成功');
+                }
+            });
+
+            //发送
+            oSend.onclick = function() {
+
+                sock.emit('msg', oTxt.value);
+            };
+
+            //接受消息
+            sock.on('msg_ret', (code, msg) => {
+                if (code) {
+                    alert(`消息发送失败, ${msg}`);
+                } else {
+                    let oLi = document.createElement('li');
+                    oLi.className = 'self';
+                    oLi.innerHTML = `<h4>${currentName}</h4><p>${oTxt.value}</p>`;
+                    oUl1.appendChild(oLi);
+                }
+            });
+
+            sock.on('msg', (userName, txt) => {
+                let oLi = document.createElement('li');
+
+                oLi.innerHTML = `<h4>${userName}</h4><p>${txt}</p>`;
+                oUl1.appendChild(oLi);
+            });
+
+
+
+        }
+    </script>
+</head>
+
+<body>
+    用户：<input type="text" name="" value="" id="user" /><br> 密码：
+    <input type="password" name="" value="" id="pass" /><br>
+    <input type="button" name="" value="注册" id='register'>
+    <input type="button" name="" value="登陆" id='login'>
+    <hr>
+    <textarea id="txt" rows="4" cols="80"></textarea>
+    <input type="button" value="发送" id="send">
+    <ul id="ul1">
+        <!-- <li>
+            <h4>zhangsan</h4>
+            <p>xxxxxxxxxxxxxxxxxxx</p>
+        </li> -->
+    </ul>
+
+
+</body>
+
+</html>
