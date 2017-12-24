@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0">
+    <title>flex弹性盒模型</title>
+    <style type="text/css" media="screen">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+        .ul1 {display: flex}
+        .ul1 li {flex: 1; background: #ccc; border: 1px solid black; text-align: center;line-height: 30px;  margin: 10px auto}
+
+    </style>
+</head>
+<body>
+<ul class="ul1">
+    <li style="flex: 2">111</li>
+    <li >222</li>
+    <li >333</li>
+</ul>
+<ul class="ul1">
+    <li>111</li>
+    <li>222</li>
+</ul>
+<ul class="ul1">
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+    <li>444</li>
+    <li>555</li>
+</ul>
+</body>
+</html>
+
+<!--
+弹性盒模型：
+父级设置display:flex， 子级设置flex:1
+可用总宽度-固定占的宽=>剩余空间
+剩余空间*flex/flex_sum=>width
+-->

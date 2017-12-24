@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            let oBtn = document.getElementById('btn1');
+
+            oBtn.onclick = function () {
+                let formData = new FormData();
+                formData.set('username', 'Tony');
+                formData.append('age', 12);
+                formData.append('pass', '2333');
+                formData.append('like', 'xxx');
+                formData.append('like', 'yyy');
+
+                let xhr = new XMLHttpRequest();
+                xhr.open('POST', 'http://localhost:8080/reg', true);
+
+                xhr.send(formData);
+
+                xhr.onreadystatechange = function () {
+                    console.log(xhr.readyState);
+                    if (xhr.readyState === 4) {
+                        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+                            alert('success');
+                        } else {
+                            alert('error');
+                        }
+
+                    }
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <input type="button" value="submit" id="btn1"/>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax2.0</title>
+    <script>
+        window.onload = function () {
+            var oBtn = document.getElementById('btn1');
+
+            oBtn.onclick = function () {
+                var formData = new FormData();
+                formData.append('username', 'Tony');
+                formData.append('age', 12);
+                formData.append('pass', '2333');
+                formData.append('like', 'xxx');
+                formData.append('like', 'yyy');
+
+                var xhr = new XMLHttpRequest();
+
+                if (xhr.upload) {
+                    alert('ajax2.0');
+                } else {
+                    alert('ajax1.0');
+                }
+                xhr.open('POST', 'http://localhost:8080/reg', true);
+
+                xhr.send(formData);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+                            alert('success');
+                        } else {
+                            alert('error');
+                        }
+
+                    }
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <input type="button" value="submit" id="btn1"/>
+</body>
+</html>

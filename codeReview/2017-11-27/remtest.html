@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0">
+    <title>rem例子</title>
+    <style media="screen">
+        * {margin:0; padding: 0; list-style: none}
+        html {font-size: 20px;}
+        .banner {}
+        .banner li {
+            width: 18.75rem;
+            height: 5.8578rem
+        }
+        .banner li img {width: 100%; height:100%}
+    </style>
+    <script>
+        var fontSize = 20 * document.documentElement.clientWidth/375 + 'px';
+        document.documentElement.style.fontSize = fontSize;
+    </script>
+</head>
+<body>
+    <ul class="banner">
+        <li><img src="img/banner1.png"></li>
+    </ul>
+</body>
+</html>
+
+<!--
+图片的宽749
+图片的高234
+
+手机屏幕宽度375px =>得出图片应该显示的高度=375*234/749 = 117.1562
+rem 表示: 宽度= 375px* (1rem/20px) = 18.75 rem 高度=117.1562px*(1rem/20px) = 5.8578rem
+
+        基准屏幕                    真实屏幕
+      宽    375                        clientWidth
+      字体  20                         ?
+      ? = 20 * clientWith/375
+-->

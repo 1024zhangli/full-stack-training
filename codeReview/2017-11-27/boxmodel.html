@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0">
+    <title>新的盒模型</title>
+    <style media="screen">
+        .box1 {width: 200px; height: 200px; background: #ccc;
+            padding: 10px; border: 10px solid black; box-sizing: border-box;
+        }
+        .box2 {width: 200px; height: 200px; background: #ccc;}
+    </style>
+</head>
+<body>
+    <!--
+    box-sizing: border-box width/height指的是到border外面，元素的宽度高度不随padding,border的增加而改变的；
+    box-sizing: context-box width/height指的是到内容部分, padding, border增加时该元素占据的位置也会增加。
+    -->
+    <div class="box1">
+        box111111111
+    </div>
+    <div class="box2">
+        box222222222
+    </div>
+</body>
+</html>
