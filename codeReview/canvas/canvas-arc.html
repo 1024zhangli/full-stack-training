@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弧</title>
+    <style type="text/css">
+        body {background-color: burlywood; text-align:center}
+        #c1 {background-color: white; border: 1px solid black;}
+    </style>
+    <script>
+        window.onload = function () {
+            let oC1 = document.getElementById('c1');
+            let gd = oC1.getContext('2d');
+
+            //gd.arc(cx, cy, r, startArc, endArc, anticlockwise)
+            gd.arc(300, 300, 150, 0, Math.PI/2, false);
+            gd.stroke();
+        }
+        
+    </script>
+</head>
+<body>
+<canvas id="c1" width="800" height="600">
+    您的浏览器不支持canvas
+</canvas>
+</body>
+</html>
+
+<!--圆弧开始的角度，从正x轴顺时针测量，以弧度表示。-->
