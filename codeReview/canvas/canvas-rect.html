@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Draw Rectangle</title>
+    <style media="screen" type="text/css">
+        body {
+            background-color: burlywood;
+            text-align: center
+        }
+        
+        #c1 {
+            background-color: white;
+            border: 1px solid black
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            let oC1 = document.getElementById('c1');
+            let gd = oC1.getContext('2d');
+
+            //1. 路径版
+            gd.rect(100, 100, 300, 200);
+            gd.stroke();
+            gd.fillStyle="burlywood";
+            gd.fill();
+
+            //2.直接画
+            gd.strokeStyle="red";
+            gd.strokeRect(200, 200, 300, 200);
+            gd.fillStyle="blue";
+            gd.fillRect(300, 300, 300, 200);
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="c1" width="800" height="600"></canvas>
+</body>
+
+</html>
+
+<!--
+    画矩形
+    1. 画路径dg.rect(x, y, w, h); 然后gd.stroke()或者gd.fill()描边或者填充
+    2. 用strokeRect或者fillRect直接画
+-->
