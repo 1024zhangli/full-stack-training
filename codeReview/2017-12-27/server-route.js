@@ -3,7 +3,6 @@ const url = require('url');
 const fs = require('fs');
 const zlib = require('zlib');
 const router = require('./libs/router');
-const querystring = require('querystring');
 
 let httpServer = http.createServer((req, res)=>{
 
