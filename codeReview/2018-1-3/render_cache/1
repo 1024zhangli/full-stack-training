@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="nav">
+  <ul>
+          <li>国际</li>
+          <li>国内</li>
+          <li>军事</li>
+          <li>武器</li>
+      </ul>
+</div>
+
+    <h1>aa</h1>
+    <ul>
+              <li>1</li>
+              <li>4</li>
+              <li>6</li>
+              <li>99</li>
+              <li>77</li>
+              <li>&lt;strong&gt;998&lt;/strong&gt;</li>
+      
+    </ul>
+    <ol>
+            <li>1</li>
+            <li>4</li>
+            <li>6</li>
+            <li>99</li>
+            <li>77</li>
+            <li>&lt;strong&gt;998&lt;/strong&gt;</li>
+      
+    </ol>
+    <hr>
+    <strong>底部</strong>aaa
+  </body>
+</html>
