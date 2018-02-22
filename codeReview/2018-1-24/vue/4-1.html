@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue 循环</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.onload = function () {
+        let vm = new Vue({
+          el: "#div1",
+          data: {
+            arr: [
+              {id:1, name: "张三", age: 22, gender:"male"},
+              {id:2, name: "李四", age: 33, gender:"female"},
+              {id:3, name: "王五", age: 44, gender:"male"}
+            ]
+          }
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <p>循环数组</p>
+      <table width="100%" border="1">
+        <thead>
+          <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>性别</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in arr" :key="item.id">
+            <td>{{item.name}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.gender}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </body>
+</html>
+
+<!--
+ v-for循环，可以指定对象的属性作为key，这样可以提高性能
+ -->
