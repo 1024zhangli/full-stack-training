@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue watch</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        let vm = new Vue({
+          el: '#div1',
+          data: {a:0, b:0},
+          methods: {},
+          watch: {
+            a(newVal, oldVal){
+              console.log(`a从${oldVal}变成了${newVal}`);
+            }
+          }
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <input type="text" name="" v-model="a">
+      {{a}}
+    </div>
+  </body>
+</html>
+
+<!--
+有数据有变化有时，会通知
+监听适合异步操作
+-->
