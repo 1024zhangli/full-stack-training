@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue if/show</title>
+    <style media="screen">
+      .box {
+        width: 200px;
+        height: 160px;
+        border: 1px;
+        background-color: grey;
+      }
+
+      .box2 {
+        background-color: blue;
+      }
+    </style>
+    <script src="vue.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        let vm = new Vue({
+          el: '#div1',
+          data: {isShow: true},
+          methods: {
+            show(){
+              this.isShow = !this.isShow;
+            }
+          },
+
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <button type="button" name="button" @click="show">显示/隐藏</button>
+      <div class="box" v-if="isShow">
+      </div>
+      <div class="box box2" v-show="isShow">
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+v-if 从dom中删掉
+v-show， display设置为none
+-->
