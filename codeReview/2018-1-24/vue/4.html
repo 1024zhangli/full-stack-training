@@ -13,7 +13,10 @@
               {name: "张三", age: 22, gender:"male"},
               {name: "李四", age: 33, gender:"female"},
               {name: "王五", age: 44, gender:"male"}
-            ]
+            ],
+            str: 'qwertyyuuop',
+            json: {a:22, b:33},
+            n: 12
           }
         });
       };
@@ -21,6 +24,7 @@
   </head>
   <body>
     <div id="div1">
+      <p>循环数组</p>
       <table width="100%" border="1">
         <thead>
           <tr>
@@ -37,10 +41,28 @@
           </tr>
         </tbody>
       </table>
+      <p>循环字符串</p>
+      <div>
+        <ul>
+          <li v-for="item, index in str">{{index}} : {{item}}</li>
+        </ul>
+      </div>
+      <p>循环对象</p>
+      <div>
+        <ul>
+          <li v-for="item, index in json">{{index}} : {{item}}</li>
+        </ul>
+      </div>
+      <p>循环数字</p>
+      <div>
+        <ul>
+          <li v-for="item in n">{{item}}</li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
 
 <!--
-vue中的循环 v-for
+vue中的循环 v-for, 可以循环数组，对象，字符串, 数字
  -->
