@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue计算数据</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        let vm = new Vue({
+          el: '#div1',
+          data: {a:0, b:0},
+          methods: {},
+          computed: {
+            num1: {
+              get: function() {
+                return this.a;
+              },
+              set: function(newVal) {
+                this.a = parseInt(newVal);
+                if (this.a < 0) {
+                  this.a = 0;
+                }
+              }
+            },
+            num2: {
+              get: function() {
+                return this.b;
+              },
+              set: function(newVal) {
+                this.b = parseInt(newVal);
+                if (this.b < 0) {
+                  this.b = 0;
+                }
+              }
+            }
+          }
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <input type="text" name="" v-model="num1">
+      <input type="text" name="" v-model="num2">
+      {{num1 + num2}}
+    </div>
+  </body>
+</html>
+
+<!--
+计算数据: 受控制的访问
+计算数据的返回不能是异步的，只能是同步
+-->
