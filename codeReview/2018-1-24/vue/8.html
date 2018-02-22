@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue修饰符</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        let vm = new Vue({
+          el: '#div1',
+          data: {a:0, b:0},
+          methods: {
+            fn() {
+              alert("提交了");
+            },
+            fn1() {
+              alert("按下了回车")
+            }
+          },
+        });
+
+        let oBtn1 = document.getElementById('btn1');
+        oBtn1.focus();
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <form action="index.html" method="post" @submit.prevent="fn" @keydown.enter="fn1" >
+        <input id="ipt1" type="text" name="" value="">
+        <input type="submit" name="" value="提交" id="btn1">
+      </form>
+    </div>
+  </body>
+</html>
+
+<!--
+事件的修饰符。例如只响应keydown事件中回车键
+-->
