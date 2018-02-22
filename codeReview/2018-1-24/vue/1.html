@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue demo</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        //1. 创建vue对象
+        let vm = new Vue({
+          el: '#div1',    //作用在哪个元素上, 作用范围;不要放在body,html上
+          data: {         //数据模型
+            a:12, b:22
+          }
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <div v-bind:title="a+b">
+          {{a+b}}
+      </div>
+      <div :title="a">
+          {{a}}
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+vue表达式{{}}，只能在标签内使用
+元素的属性中
+  v-bind:属性="a"
+  :属性="a"
+-->

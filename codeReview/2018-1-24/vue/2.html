@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue demo</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        //1. 创建vue对象
+        let vm = new Vue({
+          el: '#div1',    //作用在哪个元素上, 作用范围;不要放在body,html上
+          data: {         //数据模型
+            a:12, b:22
+          },
+          methods: {
+            fn(aa) {
+              alert(aa);
+            }
+          }
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <div :title="a">
+          {{a}}
+      </div>
+      <input type="button" name="" value="按钮" @click="fn(a+b)">
+    </div>
+  </body>
+</html>
+
+<!--
+v-on:click vue添加事件
+简写=>  @click
+-->

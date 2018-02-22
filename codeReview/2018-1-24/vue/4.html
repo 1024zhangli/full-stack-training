@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue 循环</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.onload = function () {
+        let vm = new Vue({
+          el: "#div1",
+          data: {
+            arr: [
+              {name: "张三", age: 22, gender:"male"},
+              {name: "李四", age: 33, gender:"female"},
+              {name: "王五", age: 44, gender:"male"}
+            ]
+          }
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <table width="100%" border="1">
+        <thead>
+          <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>性别</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in arr">
+            <td>{{item.name}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.gender}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
+
+<!--
+vue中的循环v-for
+ -->

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue双向绑定</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    window.onload = function () {
+      let vm = new Vue({
+        el: '#div1',
+        data: {
+          a: 22, b:33
+        }
+      });
+
+      setInterval(function () {
+        vm.a++
+      }, 1000);
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      {{a}}<br>
+      <input type="text" name="" :value="a">
+      <input type="text" name="" v-model="a">
+    </div>
+  </body>
+</html>
