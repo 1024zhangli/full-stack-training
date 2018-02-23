@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue命名路由</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script src="vue-router.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.onload = function () {
+
+        let r1 = new VueRouter({
+          routes:[
+            {
+              path: '/user',
+              name: 'usr',
+              component: {template: '<div>用户列表</div>'}
+            },
+            {
+              path: '/pass',
+              name: 'pwd',
+              component: {template: '<div>修改密码</div>'}
+            },
+            {
+              path: '/article',
+              name: 'art',
+              component: {template: '<div>文章列表</div>'}
+            }
+          ]
+        });
+
+        let vm = new Vue({
+          el: '#div1',
+          data: {},
+          router: r1
+
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <router-link :to='{name:"usr"}'>用户</router-link>
+      <router-link :to='{path: "/pass",}'>密码</router-link>
+      <router-link to='/article'>文章</router-link>
+      <router-view></router-view>
+    </div>
+  </body>
+</html>
+
+<!--
+命名路由,
+  定义的时候加上name属性{path: xxx, name: xyz, component:{}},
+  使用时<router-link :to="{name:xyz}">
+
+router-link两种用法
+1.基本，to直接跟路径
+  to="/路径"
+
+2.扩展，:to跟json字符串
+  :to="{name, path, params, query}"
+  扩展的好处是可以动态设置的路由
+-->

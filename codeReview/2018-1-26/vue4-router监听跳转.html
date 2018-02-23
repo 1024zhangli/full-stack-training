@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue router</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script src="vue-router.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+
+        //1. 声明路由
+        let r1 = new VueRouter({
+          routes: [
+            {path: '/user/:id', component: {template: '<div>用户列表, 用户ID{{$route.params.id}}</div>'}},
+          ]
+        });
+
+        //2. 使用路由
+        let vm = new Vue({
+          el: '#div1',
+          router: r1,
+          data: {},
+          watch: {
+            '$route': function(newVal, oldVal) {
+              alert(`from ${oldVal.params.id} to ${newVal.params.id}`);
+            }
+          }
+        });
+      };
+    </script>
+
+  </head>
+  <body>
+    <div id="div1">
+
+      <router-link  to='/user/123'>用户1</router-link>
+      <router-link  to="/user/543">用户2</router-link>
+      <router-link  to="/user/334">用户3</router-link>
+      <router-view></router-view>
+    </div>
+  </body>
+</html>
+
+<!--
+路由的跳转实际上是$route对象的变化；可以watch $route来感知。
+这种方式不推荐，推荐采用官方的
+-->

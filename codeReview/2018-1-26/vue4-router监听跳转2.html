@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue router</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script src="vue-router.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+
+        //1. 声明路由
+        let r1 = new VueRouter({
+          routes: [
+            {
+              path: '/user/:id',
+              component: {
+                template: '<div>用户列表, 用户ID{{$route.params.id}}</div>',
+                beforeRouteUpdate(to, from, next) {
+                  console.log(`from ${from.params.id} to ${to.params.id}`);
+
+                  //需要调用next才会往下一步走，进行路由切换
+                  next();
+                }
+              }
+            },
+          ]
+        });
+
+        //2. 使用路由
+        let vm = new Vue({
+          el: '#div1',
+          router: r1,
+          data: {},
+
+        });
+      };
+    </script>
+
+  </head>
+  <body>
+    <div id="div1">
+
+      <router-link  to='/user/123'>用户1</router-link>
+      <router-link  to="/user/543">用户2</router-link>
+      <router-link  to="/user/334">用户3</router-link>
+      <router-view></router-view>
+    </div>
+  </body>
+</html>
+
+<!--
+component里面加beforeRouteUpdate
+beforeRouteUpdate(to, from, next){
+  //切换路由
+  next();
+
+  //不希望路由切换
+  //next();
+}
+-->
