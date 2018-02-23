@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue命名路由</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script src="vue-router.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.onload = function () {
+
+        let r1 = new VueRouter({
+          routes:[
+            {
+              path: '/user',
+              name: 'usr',
+              components: {
+                default: {template: '<div>用户列表</div>'},
+                pass: {template: '<div>修改密码</div>'},
+                art: {template: '<div>文章列表</div>'}
+              }
+            }
+          ]
+        });
+
+        let vm = new Vue({
+          el: '#div1',
+          data: {},
+          router: r1
+
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <router-link :to='{name:"usr"}'>用户</router-link>
+      <router-view></router-view>
+      <router-view name="pass"></router-view>
+      <router-view name="art"></router-view>
+
+    </div>
+  </body>
+</html>
+
+<!--
+单个路由下面有多个视图
+  定义时, 采用components
+  components : {
+   default: {},
+   namexxx: {},
+   namexyz: {}
+  }
+  使用时，<router-view name="namexyz">
+-->
