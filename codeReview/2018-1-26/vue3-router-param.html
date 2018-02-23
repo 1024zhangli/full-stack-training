@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue router</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script src="vue-router.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+
+        //1. 声明路由
+        let r1 = new VueRouter({
+          routes: [
+            {path: '/user/:id', component: {template: '<div>用户列表, 用户ID{{$route.params.id}}</div>'}},
+            {path: '/article/:id', component: {template: '<div>文章列表, 用户ID{{$route.params.id}}</div>'}},
+            {path: '/comment/:id', component: {template: '<div>评论列表, 用户ID{{$route.params.id}}</div>'}},
+          ]
+        });
+
+        //2. 使用路由
+        let vm = new Vue({
+          el: '#div1',
+          router: r1,
+          data: {},
+          methods: {
+            fn_forward() {
+              this.$router.go(1);
+            },
+            fn_back() {
+              this.$router.go(-1);
+            },
+            fn_push() {
+              // 等价于<router-link to />
+              this.$router.push('/user');
+            }
+          },
+        });
+      };
+    </script>
+
+  </head>
+  <body>
+    <div id="div1">
+      <input type="button" name="" value="<--后退" @click="fn_back">
+      <input type="button" name="" value="前进-->" @click="fn_forward">
+      <input type="button" name="" value="跳到用户列表" @click="fn_push">
+      <br>
+      <router-link  to='/user/123'>用户</router-link>
+      <router-link  to="/article/543">文章</router-link>
+      <router-link  to="/comment/334">评论</router-link>
+      <router-view></router-view>
+    </div>
+  </body>
+</html>
+
+<!--
+路由参数
+path: '/user/:id'
+$route.params.id
+-->
