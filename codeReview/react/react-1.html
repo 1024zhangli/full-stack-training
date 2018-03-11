@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>rect基础</title>
+    <script src="browser.js" charset="utf-8"></script>
+    <script src="react.js" charset="utf-8"></script>
+    <script src="react-dom.js" charset="utf-8"></script>
+    <style media="screen">
+      .box {color: red}
+    </style>
+    <script type="text/babel">
+      window.onload = function () {
+        let oDiv = document.getElementById('div1');
+
+        ReactDOM.render(
+          <div>
+            <p className="box">Hello React</p>
+          </div>,
+          oDiv
+        );
+
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1"></div>
+  </body>
+</html>
+
+<!--
+ReactDOM.render是渲染JSX，将模板转化成HTML，并插入到指定的DOM节点上
+样式class在JSX中要写成className
+-->

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>rect基础</title>
+    <script src="browser.js" charset="utf-8"></script>
+    <script src="react.js" charset="utf-8"></script>
+    <script src="react-dom.js" charset="utf-8"></script>
+    <script type="text/babel">
+    class Test extends React.Component{
+      constructor(...args) {
+        super(...args);
+
+        this.state = {
+          a: 5,
+          b: 7
+        }
+      }
+
+      fn() {
+        console.log('clicked');
+        this.setState({
+          a: this.state.a + 1
+        });
+        console.log(this.state.a);
+      }
+
+      render() {
+        console.log("渲染了");
+        return <div>
+          <p>a:{this.state.a}</p>
+          <p>b:{this.state.b}</p>
+          <input type="button" value="按钮" onClick={this.fn.bind(this)}/>
+        </div>;
+      }
+    }
+
+      window.onload = function () {
+        let oDiv = document.getElementById('div1');
+
+        ReactDOM.render(
+          <Test a={5} b={7}></Test>,
+          oDiv
+        );
+
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1"></div>
+  </body>
+</html>
+
+<!--
+onclick 在JSX中要写成onClick;onClick后面接函数，而不是一个字符串; onClick={}
+-->

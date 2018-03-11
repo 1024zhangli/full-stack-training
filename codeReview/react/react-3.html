@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>rect基础</title>
+    <script src="browser.js" charset="utf-8"></script>
+    <script src="react.js" charset="utf-8"></script>
+    <script src="react-dom.js" charset="utf-8"></script>
+    <style media="screen">
+      .box{color: red}
+    </style>
+    <script type="text/babel">
+    class Test extends React.Component{
+      constructor(...args) {
+        super(...args);
+
+        this.props.b++;
+        console.log(this.props.a);
+        console.log(this.props.b);
+
+      }
+
+      fn() {
+        console.log(this.props.a);
+      }
+
+      render() {
+        return <div>
+          <label htmlFor="user">用户名：</label>
+          <input type="text" id="user"/>
+          <input type="button" value="按钮" onClick={this.fn.bind(this)}/>
+        </div>;
+      }
+    }
+
+      window.onload = function () {
+        let oDiv = document.getElementById('div1');
+
+        ReactDOM.render(
+          <Test a={5} b={7}></Test>,
+          oDiv
+        );
+
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1"></div>
+  </body>
+</html>
+
+<!--
+onclick 在JSX中要写成onClick;onClick后面接函数，而不是一个字符串; onClick={}
+-->

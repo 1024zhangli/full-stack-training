@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>rect基础</title>
+    <script src="browser.js" charset="utf-8"></script>
+    <script src="react.js" charset="utf-8"></script>
+    <script src="react-dom.js" charset="utf-8"></script>
+    <style media="screen">
+      .box {width: 400px; height: 300px; background: #ccc}
+    </style>
+    <script type="text/babel">
+    class Test extends React.Component{
+      constructor(...args) {
+        super(...args);
+
+        this.state = {flag: 1};
+      }
+
+      fn() {
+        if (this.state.flag === 1) {
+          this.setState({
+            flag: 0
+          });
+        } else {
+          this.setState({
+            flag: 1
+          });
+        }
+      }
+
+      render() {
+        console.log("渲染了");
+        return <div>
+          <div className="box" style={{ background: this.state.flag ? "green" : "blue"}}>Hello React</div>
+          <input type="button" value="按钮" onClick={this.fn.bind(this)}/>
+        </div>;
+      }
+    }
+
+      window.onload = function () {
+        let oDiv = document.getElementById('div1');
+
+        ReactDOM.render(
+          <Test a={5} b={7}></Test>,
+          oDiv
+        );
+
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1"></div>
+  </body>
+</html>
+
+<!--
+-->
